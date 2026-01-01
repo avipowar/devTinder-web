@@ -6,5 +6,8 @@
     - remove unecceray code
     - and initialize git to the project
 
-    - install tailwind in my project
-    - and setup the tailwind
+    - Install tailwind in my project
+    - SetUp the tailwind
+
+    - Install daisy-Ui
+    - Make navbar component in app.jsx file
