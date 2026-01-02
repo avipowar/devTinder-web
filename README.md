@@ -13,3 +13,7 @@
     - Make navbar component in app.jsx file
 
     - Make Navbar Component in separate file => Navbar.jsx
+
+    - create component folder => inside that i make new component
+    - we create routing in my app
+    - for that we install react-router-dom => this gives us => (BrowserRouter , Routes , Route, Outlet)

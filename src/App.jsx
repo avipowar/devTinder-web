@@ -1,10 +1,21 @@
 import React from "react";
-import NavBar from "./NavBar";
+import NavBar from "./component/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Body from "./component/Body";
+import Login from "./component/Login";
+import Profile from "./component/Profile";
 
 function App() {
   return (
     <>
-      <NavBar />
+      <BrowserRouter basename="/">
+        <Routes>
+          <Route path="/" element={<Body />}>
+            <Route path="login" element={<Login />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
