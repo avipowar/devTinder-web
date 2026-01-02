@@ -11,3 +11,5 @@
 
     - Install daisy-Ui
     - Make navbar component in app.jsx file
+
+    - Make Navbar Component in separate file => Navbar.jsx
