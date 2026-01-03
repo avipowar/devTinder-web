@@ -17,3 +17,13 @@
     - create component folder => inside that i make new component
     - we create routing in my app
     - for that we install react-router-dom => this gives us => (BrowserRouter , Routes , Route, Outlet)
+
+    - Create Footer Component
+
+# devTinder UI Part : 2
+
+    - Make Login Page Inside => Login Component
+    - make api call with => Login User => get back the res => user info
+    - install axios => for making api call and get back the response
+
+    - install in backend => cors
