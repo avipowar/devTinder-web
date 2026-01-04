@@ -5,7 +5,7 @@ const NavBar = () => {
   const user = useSelector((store) => store.user);
   console.log(user);
   return (
-    <div className="navbar bg-base-300 fixed top-0">
+    <div className="navbar bg-base-300 fixed top-0 left-0 w-full h-16 z-50">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">
           <img
