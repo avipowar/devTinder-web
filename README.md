@@ -27,3 +27,4 @@
     - install axios => for making api call and get back the response
 
     - install in backend => cors
+    - set cookie in browser successfully for that we add cors configuration in backend
