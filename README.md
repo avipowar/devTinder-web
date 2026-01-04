@@ -43,3 +43,5 @@
 
     - if user login successfully navigate => Feed Page
     - for that we use hook which is useNavigate
+
+    - refactor the code add constants in separate file
