@@ -38,3 +38,5 @@
     - add this slice in store
 
     - now i add the data in store using hook => useDispatch
+
+    - now i get the data from store (basically subscribe to the store) => useSelector
