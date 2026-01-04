@@ -36,3 +36,5 @@
     - provide a store to app using provider
     - create slice using createsliece
     - add this slice in store
+
+    - now i add the data in store using hook => useDispatch
