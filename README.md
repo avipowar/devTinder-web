@@ -45,3 +45,10 @@
     - for that we use hook which is useNavigate
 
     - refactor the code add constants in separate file
+
+# devTinder UI Part : 3
+
+    - user is logged-out show the login page OR -> do not access other information or ROUTES
+    - and also handle when user call another APIs my redux data is empty
+    - so handle this problem
+    - we create api call in => BODY COMPONENT => Using UseEffect
