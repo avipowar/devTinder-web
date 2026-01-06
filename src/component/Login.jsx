@@ -10,6 +10,7 @@ const Login = () => {
   const [passWord, setpassWord] = useState("Ajit@123");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [formErrorMessage, setFormErrorMessage] = useState("");
 
   const handleLogin = async () => {
     try {
@@ -25,7 +26,10 @@ const Login = () => {
       dispatch(addUser(res.data.user));
       return navigate("/");
     } catch (err) {
-      console.error(err.message);
+      if (err.status === 401) {
+        setFormErrorMessage("Error Message : Invalid Credentials ");
+      }
+      console.error(err);
     }
   };
 
@@ -70,6 +74,12 @@ const Login = () => {
               />
             </div>
 
+            {/* ERROR MESSAGE  */}
+            <p className="text-sm text-red-500 text-center">
+              {formErrorMessage}
+            </p>
+
+            {}
             {/* Button */}
             <div className="form-control mt-6 flex justify-center">
               <button
