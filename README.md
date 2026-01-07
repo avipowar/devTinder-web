@@ -58,3 +58,4 @@
 
     - Crate Feed page Inside Profile components => call the FEED APIs
     - and i make UserCard Component for that
+    - Crease feedSlice in Redux store
