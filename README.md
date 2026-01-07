@@ -55,3 +55,6 @@
 
     - Create LOgout Feature => call backend APIs Which is logoOut
     - add from validation also
+
+    - Crate Feed page Inside Profile components => call the FEED APIs
+    - and i make UserCard Component for that

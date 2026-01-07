@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Body = () => {
+  console.log("Body components render");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
@@ -28,10 +29,9 @@ const Body = () => {
   };
 
   useEffect(() => {
-    // if (!userData) {
-    fetchUser();
-    console.log("useffect is called");
-    // }
+    if (!userData) {
+      fetchUser();
+    }
   }, []);
 
   return (
