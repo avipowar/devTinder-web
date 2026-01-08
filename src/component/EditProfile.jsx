@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import UserCard from "./UserCard";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const EditProfile = ({ user }) => {
   console.log(user.firstName);
@@ -10,6 +14,36 @@ const EditProfile = ({ user }) => {
   const [about, setAbout] = useState(user.about);
   const [age, setAge] = useState(user.age);
   const [gender, setGender] = useState(user.gender || "");
+  const [error, setError] = useState("");
+  const [showToast, setShowToast] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleSaveProfile = async () => {
+    try {
+      setError("");
+      const res = await axios.patch(
+        BASE_URL + "/profile/edit",
+        {
+          firstName,
+          lastName,
+          photoUrl,
+          about,
+          age,
+          gender,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.data));
+      setShowToast(true);
+      setInterval(() => {
+        setShowToast();
+      }, 3000);
+    } catch (error) {
+      if (error.status === 404) {
+        setError("Invalid Credentials");
+      }
+    }
+  };
 
   return (
     <div className="flex justify-center my-20 ">
@@ -41,7 +75,7 @@ const EditProfile = ({ user }) => {
                   type="text"
                   value={lastName}
                   className="input input-bordered w-full max-w-xs"
-                  onChange={(e) => e.target.value}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
 
@@ -67,7 +101,7 @@ const EditProfile = ({ user }) => {
                   type="text"
                   className="input input-bordered w-full max-w-xs"
                   value={age}
-                  onChange={(e) => setPhotoUrl(e.target.value)}
+                  onChange={(e) => setAge(e.target.value)}
                 />
               </div>
 
@@ -80,14 +114,12 @@ const EditProfile = ({ user }) => {
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className="select select-bordered w-full max-w-xs"
+                  className="select"
                 >
-                  <option disabled selected>
-                    Select Gender
-                  </option>
+                  <option disabled={true}>Select Gender</option>
                   <option>male</option>
                   <option>female</option>
-                  <option>other</option>
+                  <option>others</option>
                 </select>
               </div>
 
@@ -100,16 +132,18 @@ const EditProfile = ({ user }) => {
                   className="textarea textarea-bordered"
                   placeholder=""
                   value={about}
-                  onChange={(e) => e.target.value}
+                  onChange={(e) => setAbout(e.target.value)}
                 ></textarea>
               </div>
+
+              <p className="text-red-500 text-center">{error}</p>
 
               {/* button */}
               <div className="form-control my-10 flex justify-center">
                 <button
                   className="btn btn-primary  w-40 mx-auto"
                   type="button"
-                  onClick={handleSaveProfile()}
+                  onClick={handleSaveProfile}
                 >
                   Save Profiles
                 </button>
@@ -123,6 +157,14 @@ const EditProfile = ({ user }) => {
           feedData={{ firstName, lastName, photoUrl, about, age, gender }}
         />
       </div>
+      {showToast && (
+        <div className="toast toast-top toast-center mt-16">
+          <div className="alert alert-success">
+            <span>Update Profile successfully.</span>
+          </div>
+        </div>
+      )}
+      ;
     </div>
   );
 };
