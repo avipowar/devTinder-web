@@ -59,3 +59,7 @@
     - Crate Feed page Inside Profile components => call the FEED APIs
     - and i make UserCard Component for that
     - Crease feedSlice in Redux store
+
+    - create profile edit page
+    - create editProfile Component where add the form
+    - also show the live demo when user edit the profile
