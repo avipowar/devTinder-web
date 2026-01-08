@@ -63,3 +63,6 @@
     - create profile edit page
     - create editProfile Component where add the form
     - also show the live demo when user edit the profile
+
+    - and call the profile/edit APIs
+    - also add form validation
